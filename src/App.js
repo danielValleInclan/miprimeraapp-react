@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import FHelloComponent from './components/FHelloComponent';
 import FInputComponent from './components/FInputComponent';
+import Contador from './components/Contador';
+
 
 const App = () => {
   const [name, setName] = useState('Daniel');
@@ -28,6 +30,7 @@ const App = () => {
         >
           Learn React
         </a>
+        <Contador/>
       </header>
     </div>
   );
