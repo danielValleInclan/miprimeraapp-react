@@ -1,46 +1,36 @@
-import { Component } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HelloComponent from './components/HelloComponent';
-import InputComponent from './components/InputComponent';
+import FHelloComponent from './components/FHelloComponent';
+import FInputComponent from './components/FInputComponent';
 
-class App extends Component {
+const App = () => {
+  const [name, setName] = useState('Daniel');
 
-  constructor(){
-    super()
-    this.state={
-      name: 'Daniel'
-    }
-  }
-
-  changeName=(event)=>{
-    this.setState({
-      name: event.target.value
-    })
-  }
-
-  render(){
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <HelloComponent nombre={this.state.name}></HelloComponent>
-          <InputComponent nombre={this.state.name} cambiarNombre={this.changeName} ></InputComponent>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+  const changeName = (event) => {
+    setName(event.target.value);
+  };
+  
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <FHelloComponent nombre={name}></FHelloComponent>
+        <FInputComponent nombre={name} cambiarNombre={changeName}></FInputComponent>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+};
 
 export default App;
